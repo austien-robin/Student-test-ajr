@@ -1,0 +1,30 @@
+#include<iostream.h>
+#include<conio.h>
+
+void printValue(void* ptr, char type) {
+    switch (type) {
+        case 'i': // Integer
+            std::cout << *static_cast<int*>(ptr) << std::endl;
+            break;
+        case 'f': // Float
+            std::cout << *static_cast<float*>(ptr) << std::endl;
+            break;
+        case 'c': // Character
+            std::cout << *static_cast<char*>(ptr) << std::endl;
+            break;
+        default:
+            std::cout << "Unknown type" << std::endl;
+    }
+}
+
+int main() {
+    int i = 10;
+    float f = 3.14;
+    char c = 'A';
+
+    printValue(&i, 'i');
+    printValue(&f, 'f');
+    printValue(&c, 'c');
+
+    return 0;
+}
